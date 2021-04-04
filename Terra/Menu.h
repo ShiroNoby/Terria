@@ -3,10 +3,11 @@
 
 #include "SFML/Graphics.hpp"
 #include "Game_State.h"
+#include "Game.h"
 
 
 //главное меню
-void menuMain(GameState* state, sf::CircleShape& shape);
+int menuMain(sf::RenderWindow* window, GameState& state);
 
 
 
