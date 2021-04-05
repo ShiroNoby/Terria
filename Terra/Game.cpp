@@ -4,6 +4,9 @@ int gameMain(sf::RenderWindow* window, GameState& state)
 {
 	window->setActive();
 
+	//генерация мира
+	
+
 	do
 	{
 		sf::Event event;
@@ -14,13 +17,28 @@ int gameMain(sf::RenderWindow* window, GameState& state)
 				window->close();
 				state.setState(4);
 			}
+
+			//проверка навигации
+			if (sf::Keyboard::isKeyPressed(sf::Keyboard::Num2))
+			{
+				state.setState(2);
+			}
+			if (sf::Keyboard::isKeyPressed(sf::Keyboard::Num4))
+			{
+				state.setState(4);
+			}
 		}
 
 		window->clear(sf::Color::Black);
 
 		window->display();
 
+		/*
+		//возврат в гл. Меню
+		//state.setstate(2);
+		*/
+
 	} while (state.getState() == 3);
 
-	return 4;
+	return state.getState();
 }

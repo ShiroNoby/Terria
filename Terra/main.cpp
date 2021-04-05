@@ -2,6 +2,7 @@
 
 #include "Game_State.h"
 #include "Menu.h"
+#include "Game.h"
 
 #define HEIGTH 800
 #define LENGTH 600
@@ -18,12 +19,31 @@ int main()
 
 	state.setState(2); //перехлдим на стадию меню
 
+	/*
 	do
 	{
 
 		state.setState( menuMain(&window, state));
 
 	} while (state.getState() == 2);
+	*/
 
+	/*
+		в будущем можно в процессах menu и game просто менять
+		state, а возвращать код ошибки или success
+	*/
+
+	do
+	{
+		window.clear();
+		window.display();
+
+		if (state.getState() == 2) { state.setState(menuMain(&window, state)); }
+		if (state.getState() == 3) { state.setState(gameMain(&window, state)); }
+
+
+	} while (state.getState() != 4);
+
+	if (window.isOpen()) { window.close(); }
 	return 0;
 }
