@@ -19,14 +19,6 @@ int main()
 
 	state.setState(2); //перехлдим на стадию меню
 
-	/*
-	do
-	{
-
-		state.setState( menuMain(&window, state));
-
-	} while (state.getState() == 2);
-	*/
 
 	/*
 		в будущем можно в процессах menu и game просто менять

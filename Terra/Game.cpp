@@ -2,7 +2,7 @@
 
 int gameMain(sf::RenderWindow* window, GameState& state) 
 {
-	window->setActive();
+	window->setActive(true);
 
 	//генерация мира
 	
