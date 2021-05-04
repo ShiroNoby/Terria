@@ -1,11 +1,12 @@
 #include "SFML/Graphics.hpp"
 
+
 #include "Game_State.h"
 #include "Menu.h"
 #include "Game.h"
 
-#define HEIGTH 800
-#define LENGTH 600
+#define HEIGTH 1920
+#define LENGTH 1080
 
 
 int main() 
@@ -30,7 +31,7 @@ int main()
 		window.clear();
 		window.display();
 
-		if (state.getState() == 2) { state.setState(menuMain(&window, state)); }
+		if (state.getState() == 2) { main_menu(&window, state); }
 		if (state.getState() == 3) { state.setState(gameMain(&window, state)); }
 
 

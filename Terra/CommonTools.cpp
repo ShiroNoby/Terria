@@ -7,7 +7,7 @@
 Resourse::Resourse()
 	:m_type(Resourse_Type::NON_RES) {}
 
-explicit Resourse::Resourse(const Resourse& Res)
+Resourse::Resourse(const Resourse& Res)
 	: m_type(Res.m_type), m_Resourse_Sprite(Res.m_Resourse_Sprite)
 {
 	//оставлю комбинацию предметов до лучших дней
@@ -113,8 +113,29 @@ void inventory::setPosition(int index, int& x, int& y)
 	Resourse_m_data[index].setPosition(x, y);
 }
 
+inventory& inventory::operator=(const inventory& Inventory) 
+{
+	if (Inventory.m_length) 
+	{
+		this->m_length = Inventory.m_length;
+		this->Resourse_m_data = new Resourse[m_length];
+	}
+
+	for (int index = 0; index < Inventory.m_size; index++) 
+	{
+		this->push(Inventory.Resourse_m_data[index]);
+	}
+
+	return *this;
+}
+
+void inventory::null() 
+{
+	this->Resourse_m_data = nullptr;
+}
+
 inventory::~inventory() 
 {
-	delete[] Resourse_m_data;
-	Resourse_m_data			= nullptr;
+	delete[] this->Resourse_m_data;
+	this->Resourse_m_data			= nullptr;
 }

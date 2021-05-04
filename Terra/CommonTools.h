@@ -36,7 +36,7 @@ public:
 	Resourse(Resourse_Type& type);
 
 
-	explicit Resourse(const Resourse& Res);
+	Resourse(const Resourse& Res);
 
 	Resourse_Type& getType();
 
@@ -79,6 +79,10 @@ public:
 
 	//set( index element )posotion
 	void setPosition(int index, int& x, int& y);
+
+	inventory& operator=(const inventory& Inventory);
+
+	void null();
 
 	~inventory();
 };
